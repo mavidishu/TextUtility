@@ -1,13 +1,16 @@
+// Imports
 import React, { useState } from "react";
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom';
+
+// Function
 export default function Navbar(props) {
   return (
     <div>
       <nav className= {`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`} >
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            {props.title}
+            <strong>{props.title}</strong>
           </Link>
           <button
             className="navbar-toggler"
@@ -48,7 +51,7 @@ export default function Navbar(props) {
 }
 
 
-// proptypes 
+// Property Types 
 Navbar.propTypes = {
     title:PropTypes.string.isRequired,
     aboutText:PropTypes.string

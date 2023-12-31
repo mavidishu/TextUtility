@@ -1,3 +1,4 @@
+// Imports
 import { useState } from 'react';
 import './App.css';
 import About from './Component/About';
@@ -7,9 +8,11 @@ import Alert from './Component/Alert';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+
+
+// Function
 function App() {
   const [mode,setMode] = useState('light'); //state
   const [alert,setAlert] = useState(null);
@@ -43,7 +46,7 @@ function App() {
         <div className="container">
           <Routes>
           <Route exact path='/' element={<TextForm heading ="Enter Text Here" showAlert={showAlert} mode={mode}/>}></Route>
-            <Route exact path='/about' element={<About/>}></Route>
+            <Route exact path='/about' element={<About mode={mode}/>}></Route>
           </Routes>
         </div>
         

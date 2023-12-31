@@ -1,44 +1,26 @@
-import React, { useState } from "react";
+// Import
+import React from "react";
 
-export default function About() {
-    const [myStyle,setMyStyle] = useState({
-        color:'black',
-        backgroundColor:'white'
-    });
-    const [btnText,setbtnText] = useState('Enable Dark Mode');
 
-    let toggleStyle= ()=>{
-        if(myStyle.color == 'black'){ // if light mode then toggle to dark mode
-            setMyStyle({
-                color:'white',
-                backgroundColor:'black',
-                border:'1px solid white'
-            });
-            setbtnText('Enable Light Mode');
-        }else{
-            setMyStyle({
-                color:'black',
-                backgroundColor:'white'
-            });
-            setbtnText('Enable Dark Mode');
-        }
-    }
+// Function
+export default function About(props) {  
   return (
-    <div className="container" style={myStyle}>
+    <div className= {`container text-${props.mode==='light'?'dark':'light'}`}>
         <h3 className="my-3">About Our textUtility</h3>
-      <div className="accordion" id="accordionExample" >
-        <div className="accordion-item" style={myStyle}>
+        <div className="desc"><h6> Experience the Power of Words with TextHub  Where Your Texts Take Center Stage!</h6></div>
+      <div className="accordion my-3" id="accordionExample" >
+        <div className="accordion-item">
           <h2 className="accordion-header" >
             <button
-              className="accordion-button"
+              className="accordion-button "
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
-              style={myStyle}
+              style={{backgroundColor:`${props.mode==='light'?'white':'#0b3f74'}`, color:`${props.mode==='light'?'black':'white'}`}}
             >
-              Who we are?
+              Our Mission: Unleashing the Potential of Text
             </button>
           </h2>
           <div
@@ -46,19 +28,12 @@ export default function About() {
             className="accordion-collapse collapse show"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body" style={myStyle}>
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            <div className="accordion-body" style={{backgroundColor:`${props.mode==='light'?'white':'#0b3f74'}`, color:`${props.mode==='light'?'black':'white'}`}}>
+            Our mission is simple yet profound: to empower individuals and communities by providing a comprehensive suite of text utilities that cater to diverse linguistic needs. Whether you're a seasoned writer aiming for perfection, a student striving for clarity, or a professional communicating with precision, TextHub is here to support you on your linguistic journey.
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div className="accordion-item" >
           <h2 className="accordion-header">
             <button
               className="accordion-button collapsed"
@@ -67,9 +42,9 @@ export default function About() {
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
-              style={myStyle}
+              style={{backgroundColor:`${props.mode==='light'?'white':'#0b3f74'}`, color:`${props.mode==='light'?'black':'white'}`}}
             >
-              What we do?
+              About TextHub: Empowering Your Words, Enhancing Your Texts
             </button>
           </h2>
           <div
@@ -77,15 +52,8 @@ export default function About() {
             className="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body" style={myStyle}>
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            <div className="accordion-body" style={{backgroundColor:`${props.mode==='light'?'white':'#0b3f74'}`, color:`${props.mode==='light'?'black':'white'}`}}>
+            Welcome to textUtility, where the art and science of text meet in a harmonious symphony of <strong>linguistic empowerment</strong>. At textUtility, we believe that words have the power to shape ideas, connect minds, and convey emotions. Our platform is more than just a collection of text utilities; it's a creative space designed to elevate your writing experience and enhance the impact of your words.
             </div>
           </div>
         </div>
@@ -98,9 +66,9 @@ export default function About() {
               data-bs-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"
-              style={myStyle}
+              style={{backgroundColor:`${props.mode==='light'?'white':'#0b3f74'}`, color:`${props.mode==='light'?'black':'white'}`}}
             >
-              Sponsors & Authors
+              Innovation in Simplicity
             </button>
           </h2>
           <div
@@ -108,21 +76,37 @@ export default function About() {
             className="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body" style={myStyle}>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            <div className="accordion-body" style={{backgroundColor:`${props.mode==='light'?'white':'#0b3f74'}`, color:`${props.mode==='light'?'black':'white'}`}}>
+            
+              We believe that powerful tools should be accessible to everyone. <code> textUtility</code> boasts an <strong>intuitive interface </strong>that makes our suite of utilities easy to use, ensuring that you can focus on your content without any technological barriers.
             </div>
           </div>
         </div>
-      </div>
-      <div className="container">
-        <button type="button" onClick ={toggleStyle} class="btn btn-primary my-3">{btnText}</button>
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button
+              className="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFour"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+              style={{backgroundColor:`${props.mode==='light'?'white':'#0b3f74'}`, color:`${props.mode==='light'?'black':'white'}`}}
+            >
+              Versatility in Functionality
+            </button>
+          </h2>
+          <div
+            id="collapseFour"
+            className="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <div className="accordion-body" style={{backgroundColor:`${props.mode==='light'?'white':'#0b3f74'}`, color:`${props.mode==='light'?'black':'white'}`}}>
+            
+            TextHub is not a one-size-fits-all solution. Our platform offers a wide array of tools from basic grammar checks to advanced language translations  providing the versatility needed to meet the unique demands of various users.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
